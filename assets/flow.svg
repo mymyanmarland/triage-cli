@@ -4,9 +4,16 @@
       <stop offset="0" stop-color="#10233a"/>
       <stop offset="1" stop-color="#0b1828"/>
     </linearGradient>
-    <path id="wire" d="M0 0 H52" fill="none"/>
+    <linearGradient id="sheen" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0" stop-color="#39c2ff" stop-opacity="0"/>
+      <stop offset="0.5" stop-color="#39c2ff" stop-opacity="0.14"/>
+      <stop offset="1" stop-color="#39c2ff" stop-opacity="0"/>
+    </linearGradient>
   </defs>
   <rect width="1200" height="250" rx="16" fill="#081120"/>
+  <rect width="1200" height="250" rx="16" fill="url(#sheen)">
+    <animate attributeName="opacity" values="0.4;1;0.4" dur="7s" repeatCount="indefinite"/>
+  </rect>
 
   <!-- connectors with travelling pulses -->
   <g stroke="#24506e" stroke-width="2.5" fill="none">
@@ -17,37 +24,39 @@
   </g>
   <g fill="#5ff5c8">
     <circle r="5"><animateMotion dur="1.6s" repeatCount="indefinite" path="M216 105 H268"/></circle>
-    <circle r="5"><animateMotion dur="1.6s" begin="0.3s" repeatCount="indefinite" path="M452 105 H504"/></circle>
+    <circle r="5" fill="#8f7bff"><animateMotion dur="1.6s" begin="0.3s" repeatCount="indefinite" path="M452 105 H504"/></circle>
     <circle r="5"><animateMotion dur="1.6s" begin="0.6s" repeatCount="indefinite" path="M688 105 H740"/></circle>
-    <circle r="5"><animateMotion dur="1.6s" begin="0.9s" repeatCount="indefinite" path="M924 105 H976"/></circle>
+    <circle r="5" fill="#39c2ff"><animateMotion dur="1.6s" begin="0.9s" repeatCount="indefinite" path="M924 105 H976"/></circle>
   </g>
 
-  <!-- nodes -->
+  <!-- nodes: Collect → Redact secrets → Dedupe errors → Timeline → Report -->
   <g font-family="'Segoe UI', Helvetica, Arial, sans-serif">
     <g>
       <rect x="32" y="55" width="184" height="100" rx="14" fill="url(#box)" stroke="#39c2ff" stroke-width="1.6"/>
-      <text x="124" y="98" fill="#eaf4ff" font-size="19" font-weight="700" text-anchor="middle">Server logs</text>
-      <text x="124" y="126" fill="#7f97ad" font-size="14" text-anchor="middle">journal · nginx · PM2</text>
+      <text x="124" y="98" fill="#eaf4ff" font-size="19" font-weight="700" text-anchor="middle">Collect</text>
+      <text x="124" y="126" fill="#7f97ad" font-size="14" text-anchor="middle">system · services · logs</text>
     </g>
     <g>
-      <rect x="268" y="55" width="184" height="100" rx="14" fill="url(#box)" stroke="#2ee6a8" stroke-width="1.6">
+      <rect x="268" y="55" width="184" height="100" rx="14" fill="url(#box)" stroke="#8f7bff" stroke-width="1.6">
         <animate attributeName="stroke-width" values="1.6;3;1.6" dur="2.4s" repeatCount="indefinite"/>
       </rect>
-      <text x="360" y="98" fill="#eaf4ff" font-size="19" font-weight="700" text-anchor="middle">triage collect</text>
-      <text x="360" y="126" fill="#7f97ad" font-size="14" text-anchor="middle">one read-only pass</text>
+      <text x="360" y="98" fill="#eaf4ff" font-size="19" font-weight="700" text-anchor="middle">Redact secrets</text>
+      <text x="360" y="126" fill="#7f97ad" font-size="14" text-anchor="middle">passwords never leave</text>
     </g>
     <g>
       <rect x="504" y="55" width="184" height="100" rx="14" fill="url(#box)" stroke="#39c2ff" stroke-width="1.6"/>
-      <text x="596" y="98" fill="#eaf4ff" font-size="19" font-weight="700" text-anchor="middle">Dedupe</text>
-      <text x="596" y="126" fill="#7f97ad" font-size="14" text-anchor="middle">×232 means ONE problem</text>
+      <text x="596" y="98" fill="#eaf4ff" font-size="19" font-weight="700" text-anchor="middle">Dedupe errors</text>
+      <text x="596" y="126" fill="#7f97ad" font-size="14" text-anchor="middle">×232 = ONE problem</text>
     </g>
     <g>
-      <rect x="740" y="55" width="184" height="100" rx="14" fill="url(#box)" stroke="#8f7bff" stroke-width="1.6"/>
-      <text x="832" y="98" fill="#eaf4ff" font-size="19" font-weight="700" text-anchor="middle">Redact</text>
-      <text x="832" y="126" fill="#7f97ad" font-size="14" text-anchor="middle">secrets never leave</text>
+      <rect x="740" y="55" width="184" height="100" rx="14" fill="url(#box)" stroke="#2ee6a8" stroke-width="1.6"/>
+      <text x="832" y="98" fill="#eaf4ff" font-size="19" font-weight="700" text-anchor="middle">Timeline</text>
+      <text x="832" y="126" fill="#7f97ad" font-size="14" text-anchor="middle">events in time order</text>
     </g>
     <g>
-      <rect x="976" y="55" width="192" height="100" rx="14" fill="url(#box)" stroke="#2ee6a8" stroke-width="1.6"/>
+      <rect x="976" y="55" width="192" height="100" rx="14" fill="url(#box)" stroke="#2ee6a8" stroke-width="1.6">
+        <animate attributeName="stroke-width" values="1.6;3;1.6" dur="2.4s" begin="1.2s" repeatCount="indefinite"/>
+      </rect>
       <text x="1072" y="98" fill="#eaf4ff" font-size="19" font-weight="700" text-anchor="middle">1 report</text>
       <text x="1072" y="126" fill="#7f97ad" font-size="14" text-anchor="middle">any agent can read it</text>
     </g>
