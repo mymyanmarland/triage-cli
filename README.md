@@ -26,7 +26,7 @@ markdown report** — system, services, ports, and errors deduplicated
 by signature with counts — that any agent (Cursor, Claude Code,
 OpenClaw, Ko Pai, …) can read in a single pass.
 
-<img src="assets/flow.svg" alt="Logs → triage collect → dedupe → redact → one report" width="100%"/>
+<img src="assets/flow.svg" alt="Collect → redact secrets → dedupe errors → timeline → one report" width="100%"/>
 
 <img src="assets/divider.svg" width="100%"/>
 
