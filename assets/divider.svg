@@ -1,7 +1,47 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="26" viewBox="0 0 1200 26">
-  <path d="M0 13 H470 l10 -9 14 18 10 -9 H730 l10 -9 14 18 10 -9 H1200" fill="none"
-        stroke="#2ee6a8" stroke-width="2" stroke-linejoin="round" opacity="0.75"
-        pathLength="1200" stroke-dasharray="1200" stroke-dashoffset="1200">
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="40" viewBox="0 0 1200 40">
+  <defs>
+    <linearGradient id="line" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0" stop-color="#2ee6a8" stop-opacity="0"/>
+      <stop offset="0.25" stop-color="#2ee6a8"/>
+      <stop offset="0.5" stop-color="#39c2ff"/>
+      <stop offset="0.75" stop-color="#8f7bff"/>
+      <stop offset="1" stop-color="#8f7bff" stop-opacity="0"/>
+    </linearGradient>
+    <path id="trace" d="M0 20 H430 l10 -12 14 24 10 -12 H570 l8 -8 11 16 8 -8 H730 l10 -12 14 24 10 -12 H1200" fill="none"/>
+  </defs>
+
+  <!-- faint echo trace -->
+  <use href="#trace" stroke="#39c2ff" stroke-width="1.4" stroke-linejoin="round" opacity="0.28" transform="translate(0 5)"/>
+
+  <!-- main animated trace -->
+  <use href="#trace" stroke="url(#line)" stroke-width="2.2" stroke-linejoin="round"
+       pathLength="1200" stroke-dasharray="1200" stroke-dashoffset="1200">
     <animate attributeName="stroke-dashoffset" values="1200;0;-1200" dur="8s" repeatCount="indefinite"/>
-  </path>
+  </use>
+
+  <!-- travelling glow dot -->
+  <circle r="4" fill="#5ff5c8">
+    <animateMotion dur="8s" repeatCount="indefinite" path="M0 20 H430 l10 -12 14 24 10 -12 H570 l8 -8 11 16 8 -8 H730 l10 -12 14 24 10 -12 H1200"/>
+    <animate attributeName="opacity" values="0;1;1;0" keyTimes="0;0.05;0.95;1" dur="8s" repeatCount="indefinite"/>
+  </circle>
+
+  <!-- pulsing node dots -->
+  <g>
+    <circle cx="300" cy="20" r="3.4" fill="#2ee6a8">
+      <animate attributeName="opacity" values="1;0.25;1" dur="2.2s" repeatCount="indefinite"/>
+    </circle>
+    <circle cx="900" cy="20" r="3.4" fill="#39c2ff">
+      <animate attributeName="opacity" values="0.25;1;0.25" dur="2.2s" repeatCount="indefinite"/>
+    </circle>
+  </g>
+
+  <!-- center diamond -->
+  <g transform="translate(600 20)">
+    <rect x="-6" y="-6" width="12" height="12" rx="2" fill="#0b1c2e" stroke="#5ff5c8" stroke-width="1.8" transform="rotate(45)">
+      <animateTransform attributeName="transform" type="rotate" values="45;225;405" dur="9s" repeatCount="indefinite" additive="sum"/>
+    </rect>
+    <circle r="2.2" fill="#5ff5c8">
+      <animate attributeName="opacity" values="1;0.4;1" dur="1.6s" repeatCount="indefinite"/>
+    </circle>
+  </g>
 </svg>
