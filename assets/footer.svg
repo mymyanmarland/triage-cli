@@ -1,0 +1,24 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="130" viewBox="0 0 1200 130">
+  <defs>
+    <linearGradient id="wave" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0" stop-color="#0d3b2e"/>
+      <stop offset="0.5" stop-color="#0d2c47"/>
+      <stop offset="1" stop-color="#241a4d"/>
+    </linearGradient>
+    <path id="w" d="M0 62 Q150 22 300 62 T600 62 T900 62 T1200 62 T1500 62 T1800 62 T2100 62 T2400 62 V130 H0 Z"/>
+  </defs>
+  <rect width="1200" height="130" fill="#081120"/>
+  <g opacity="0.55">
+    <use href="#w" fill="url(#wave)">
+      <animateTransform attributeName="transform" type="translate" values="-1200 6;0 6" dur="11s" repeatCount="indefinite"/>
+    </use>
+  </g>
+  <g opacity="0.9">
+    <use href="#w" fill="url(#wave)">
+      <animateTransform attributeName="transform" type="translate" values="0 22;-1200 22" dur="8s" repeatCount="indefinite"/>
+    </use>
+  </g>
+  <text x="600" y="52" font-family="'Segoe UI', Helvetica, Arial, sans-serif" font-size="19" font-weight="700" fill="#c7d7e8" text-anchor="middle">triage-cli · built for AI agents · MIT
+    <animate attributeName="opacity" values="1;0.7;1" dur="3.5s" repeatCount="indefinite"/>
+  </text>
+</svg>
